@@ -8,6 +8,7 @@ import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 import { Provider } from 'react-redux';
 import { sessionService } from 'redux-react-session';
+import Helmet from 'react-helmet';
 import routes from './routes';
 import configureStore from '../src/store/configureStore.prod';
 
@@ -54,11 +55,14 @@ const handleRender = (req, res) => {
         res.status(404);
       }
 
+      const helmet = Helmet.renderStatic();
+      const meta = helmet.meta.toString();
+
       // Grab the initial state from our Redux store
       const preloadedState = JSON.stringify(store.getState()).replace(/</g, '\\u003c');
 
       // render the index template with the embedded React markup
-      return res.render('index', { markup, preloadedState });
+      return res.render('index', { markup, preloadedState, meta });
     }
   );
 }

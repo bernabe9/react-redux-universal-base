@@ -3,11 +3,18 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
+import { Helmet } from "react-helmet";
 import * as sessionActions from '../actions/sessionActions';
 import LoginForm from '../components/session/LoginForm';
 
 export const LoginPage = ({ actions: { login } }) => (
   <div>
+    <Helmet>
+      <meta name="og:url" content="https://www.skillzz.com" />
+      <meta name="og:title" content="test" />
+      <meta property="og:type" content="website" />
+      <meta property="og:image" content="https://s3-us-west-2.amazonaws.com/skillzz-web-prod/public/logo.png" />
+    </Helmet>
     <p>LOGIN</p>
     <LoginForm onSubmit={login}/>
     <Link to="sign-up"> Sign up </Link>
