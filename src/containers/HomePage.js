@@ -1,11 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import LogoutButton from '../components/session/LogoutButton';
 
-const HomePage = () => (
+const HomePage = ({ authenticated, user }) => (
   <div>
-    <p>Welcome to React Redux Base</p>
+    { authenticated &&
+      <p>{user.email}, welcome to React Redux Universal</p>   
+    }
     <LogoutButton />
   </div>
 );
 
-export default HomePage;
+const mapState = ({ session }) => ({
+  authenticated: session.authenticated,
+  user: session.user
+});
+
+export default connect(mapState)(HomePage);

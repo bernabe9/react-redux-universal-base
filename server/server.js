@@ -25,7 +25,7 @@ const handleRender = (req, res) => {
   // Create a new Redux store instance
   const store = configureStore();
 
-  sessionService.initSessionService(store);
+  sessionService.initServerSession(store, req);
 
   match(
     { routes, location: req.url },
@@ -56,13 +56,12 @@ const handleRender = (req, res) => {
       }
 
       const helmet = Helmet.renderStatic();
-      const meta = helmet.meta.toString();
 
       // Grab the initial state from our Redux store
       const preloadedState = JSON.stringify(store.getState()).replace(/</g, '\\u003c');
 
       // render the index template with the embedded React markup
-      return res.render('index', { markup, preloadedState, meta });
+      return res.render('index', { markup, preloadedState, helmet });
     }
   );
 }

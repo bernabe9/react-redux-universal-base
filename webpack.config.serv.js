@@ -15,7 +15,7 @@ export default {
   resolve: {
     extensions: ['*', '.js', '.jsx', '.json']
   },
-  entry: path.resolve(__dirname, 'src/index'),
+  entry: path.resolve(__dirname, 'server/client'),
   target: 'web',
   output: {
     path: path.resolve(__dirname, 'server', 'static'),
