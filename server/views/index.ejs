@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>React Redux Base</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <div id="app"><%- markup -%></div>
+    <script>
+      window.__PRELOADED_STATE__ = <%- preloadedState -%>
+    </script>
     <script src="bundle.js"></script>
   </body>
 </html>

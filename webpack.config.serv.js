@@ -16,7 +16,7 @@ export default {
     extensions: ['*', '.js', '.jsx', '.json']
   },
   entry: path.resolve(__dirname, 'src/index'),
-  target: 'node',
+  target: 'web',
   output: {
     path: path.resolve(__dirname, 'server', 'static'),
     publicPath: '/',
