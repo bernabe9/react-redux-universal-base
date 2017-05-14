@@ -8,7 +8,7 @@ import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 import { Provider } from 'react-redux';
 import { sessionService } from 'redux-react-session';
-import routes from '../src/routes';
+import routes from './routes';
 import configureStore from '../src/store/configureStore.prod';
 
 // initialize the server and configure support for ejs templates
