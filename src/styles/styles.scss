@@ -1,4 +1,7 @@
+@import './variables.scss';
+
 body {
+  color: $principal-color;
   font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 100%;
 }

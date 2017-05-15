@@ -9,6 +9,8 @@ import { match, RouterContext } from 'react-router';
 import { Provider } from 'react-redux';
 import { sessionService } from 'redux-react-session';
 import Helmet from 'react-helmet';
+import register from 'ignore-styles';
+register(['.sass', '.scss']);
 import routes from './routes';
 import configureStore from '../src/store/configureStore.prod';
 
@@ -50,9 +52,6 @@ const handleRender = (req, res) => {
             <RouterContext {...renderProps} />
           </Provider>
         );
-      } else {
-        // otherwise we can render a 404 page
-        res.status(404);
       }
 
       const helmet = Helmet.renderStatic();

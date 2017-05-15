@@ -6,6 +6,7 @@ import { Link } from 'react-router';
 import { Helmet } from "react-helmet";
 import * as sessionActions from '../actions/sessionActions';
 import LoginForm from '../components/session/LoginForm';
+require('../styles/login.scss');
 
 export const LoginPage = ({ actions: { login } }) => (
   <div>
